@@ -1,0 +1,70 @@
+Reglement: 
+ 
+Un jeu de carte de 54 cartes est separer entre vous et le BOT.
+En meme temps, vous tournez la carte sur le dessus de votre deck pour comparer avec le bot.
+Comme a la bataille, la carte la plus haute l'emporte.
+ 
+Voici la valeur des cartes
+char	quoi	valeur
+1     =  as   =   1
+2 a 9 = 2 a 9 = 2 a 9
+X     =   10  =   10
+J     = valet =   11
+Q     = reine =   12
+K     =  roi  =   13
+Z     = JOKER =   50
+(les deux jokers valent la meme valeur)
+ 
+----Appuyer sur enter pour voir la suite----
+
+Par contre, si la difference entre les cartes est entre 1 et 6,
+le joueur a la carte la plus faible peut tenter de battre la carte de l'autre joueur
+en additionnant la valeur d'un DICE a la valeur de sa carte. 
+Pour ce faire, il doit miser la prochaine carte de son deck.
+ 
+Une fois tenter, le joueur a la carte la plus haute lance aussi le DICE pour se defendre.
+ 
+----Appuyer sur enter pour voir la suite----
+
+Voici la FLOW CHART des possibilites
+ 
+LEGENDE 
+JM = Joueur carte moins haute
+JP = Joueur carte la plus haute
+C = carte jouer (play)  exemple: JM_C = carte joueur carte moins haute
+D = Valeur du DICE	exemple: JP_D = valeur dice joueur carte plus haute
+M = Mise		exemple: JM_M = Mise du joueur carte plus faible
+OUT = Sortie du jeu
+REINITIALISATION: Sans refaire la mise, JM relance le DICE
+ 
+FLOW CHART (de gauche a droite)
+ 
+			           --> JM_D < JP_D : JP gagne JP_C/JM_C/JM_M 
+	     --> JM_C+JM_D < JP_C  --> JM_D = JP_D : REINITIALISATION 
+JM mise et                         --> JM_D > JP_D : JP gagne JP_C/JM_C/JM_M OUT 
+lance le DICE--> JM_C+JM_D = JP_C  --> BATAILLE
+      				   --> JM_D < JP_D : JM gagne JP_C/JM_C/JM_M OUT
+	     --> JM_C+JM_D > JP_C  --> JM_D = JP_D : REINITIALISATION
+                                   --> JM_D > JP_D : JM gagne JP_C/JM_C/JM_M
+ 
+----Appuyer sur enter pour voir la suite----
+
+BATAILLE
+ 
+La bataille peut etre provoquee soit par la valeur identique des cartes jouer (play)
+ou par l'addition de la carte et de la valeur du DICE du joueur a la carte la moins forte.
+Lors d'une bataille, chaque joueur mise une carte et lance le DICE.
+Le DICE le plus fort l'emporte. Si les DICEs sont de valeur identique, la bataille recommence.
+ 
+Lors de la bataille, si l'un des joueurs n'a plus de carte,
+c'est l'autre joueur qui fournit la mise pour l'autre joueur.
+Dans le cas ou les deux joueurs n'auraient plus de carte,
+la carte joueur et la mise de chaque joueur lui est retournes "SPLIT"
+(meme si l'autre joueur a fournit a la mise)
+ 
+FIN DU JEU
+ 
+Lorsque l'un joueur n'a plus de carte dans son deck, son depot et en jeu, il a perdu.
+  
+----Appuyer sur enter pour quitter----
+
